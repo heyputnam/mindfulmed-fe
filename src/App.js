@@ -108,25 +108,28 @@ function App() {
           <select name="morning"
         input={state.newMed.morning} 
         onChange={handleChange}
-        type="Booleam">
-         <option value={true}>Yes</option>
-          <option value={false}>No</option>
+        type="Booleam" default='false'>
+           <option></option>
+         <option value="true">Yes</option>
+          <option value='false'>No</option>
       </select>
         <label>take in the afternoon? </label>
         <select name="afternoon"
         input={state.newMed.afternoon} 
         onChange={handleChange}
         type="Booleam">
-          <option value={true}>Yes</option>
-          <option value={false}>No</option>
+           <option></option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
     </select>
         <label>take at night? </label>
         <select name="night"
         input={state.newMed.night} 
         onChange={handleChange}
         type="Booleam">
-     <option value={true}>Yes</option>
-          <option value={false}>No</option>
+        <option></option>
+         <option value="true">Yes</option>
+          <option value="false">No</option>
    </select>
         <button>ADD MED</button>
       </form>
