@@ -11,7 +11,7 @@ function App() {
       name: 'adderall',
       dose: '30mg',
       dateFill: '10-05-2021',
-      morning: true,
+      morning: 'true',
       afternoon: true,
       night: false,
 
@@ -21,9 +21,9 @@ function App() {
       name: '',
       dose: '',
       dateFill: '',
-      morning: false,
-      afternoon: false,
-      neight: false,
+      morning:Boolean(''),
+      afternoon:Boolean(''),
+      night: Boolean(''),
     },
   });
   //create a function to get app data from backend app
@@ -60,14 +60,14 @@ function App() {
    // do this so it doesnt wipe the user when we add new state to the page 
    setState((prevState) => ({
      ...prevState,
-     skills: [...prevState.meds, prevState.newMed], 
+     meds: [...prevState.meds, prevState.newMed], 
      newMed: {
       name: '',
       dose: '',
       dateFill: '',
-      morning: false,
-      afternoon: false,
-      neight: false,
+      morning:Boolean(''),
+      afternoon:Boolean(''),
+      night: Boolean(''),
     },
    }))
  }
@@ -99,31 +99,35 @@ function App() {
         onChange={handleChange}
         />
           <label> Date Filled: </label>
-        <input name="dateFilled" 
-        input={state.newMed.dateFilled} 
+        <input name="dateFill" 
+        input={state.newMed.dateFill} 
         onChange={handleChange}
+        type="date"
         />
           <label>take in morning? </label>
-        <input name="morning" 
-        type="checkbox"
+          <select name="morning"
         input={state.newMed.morning} 
         onChange={handleChange}
-        checked="checked"
-        />
+        type="Booleam">
+         <option value={true}>Yes</option>
+          <option value={false}>No</option>
+      </select>
         <label>take in the afternoon? </label>
-        <input name="afternoon" 
-        type="checkbox"
+        <select name="afternoon"
         input={state.newMed.afternoon} 
         onChange={handleChange}
-        checked="checked"
-        />
+        type="Booleam">
+          <option value={true}>Yes</option>
+          <option value={false}>No</option>
+    </select>
         <label>take at night? </label>
-        <input name="night" 
-        type="checkbox"
-        checked='true'
+        <select name="night"
         input={state.newMed.night} 
         onChange={handleChange}
-        />
+        type="Booleam">
+     <option value={true}>Yes</option>
+          <option value={false}>No</option>
+   </select>
         <button>ADD MED</button>
       </form>
     </div>
