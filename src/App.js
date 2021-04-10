@@ -2,10 +2,18 @@
 import{ useState, useEffect } from 'react';
 import './styles.css';
 import Header from './components/Header/Header'
+import Medlist from './components/Medlist/Medlist'
+import AutoSuggest from './components/AutoSuggest/AutoSuggest'
+import {login, logout, auth } from './services/firebase'
+import autoSuggestdb from './services/autoSuggest-api'
 
 function App() {
   //setting state and state function
   const[state, setState] = useState({
+    activeOption: 0,
+    filteredOptions: [],
+    showOptions: false,
+    userInput: "",
     user: null, 
     meds: [{
       name: 'adderall',
@@ -27,6 +35,12 @@ function App() {
     },
   });
   //create a function to get app data from backend app
+  const[auto, setAuto] = useState({
+
+
+  })
+
+
 
   async function getAppData(){
     const BASE_URL = "http://localhost:3001/api/meds"
@@ -39,15 +53,27 @@ function App() {
     }));
   }
 //use effect function 
- useEffect(() => {
-   getAppData();
- }, [])
-
+useEffect(() => {
+  getAppData();
+  auth.onAuthStateChanged(user => {
+    if(user) {
+      setState(prevState => ({
+        ...prevState,
+        user,
+      }));
+    } else {
+      setState(prevState => ({
+        ...prevState,
+        user: null
+      }))
+    }
+  })
+}, []);
 
  //add new medication to list
  // e for event
  async function addMed(e){
-   
+   if(!state.user) return;
    e.preventDefault();
    const BASE_URL = "http://localhost:3001/api/meds";
    const med = await fetch(BASE_URL, {
@@ -81,12 +107,18 @@ function App() {
   }
   }))
  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <Header />
-        <h1>MindfulMed</h1>
+    <div>
+      <header>
+        <Header user={state.user}/>
       </header>
+      <section>
+      <Medlist state={state}/>
+      </section>
+      <div>
+        <AutoSuggest options={[autoSuggestdb]}/>
+      </div>
       <form onSubmit={addMed}>
         <label>medication name: </label>
         <input name="name" 
@@ -135,6 +167,7 @@ function App() {
       </form>
     </div>
   );
+  
 }
 
 export default App;
