@@ -18,20 +18,30 @@ function AutoSuggest(props) {
     getData();
     setOptions(meds)
   }, [''])
+
+  const setMedBar = (bar) =>{
+      setSearch(bar);
+      setDisplay(false);
+  }
    
      return(
     <>
     <div className="flex-container flex-column pos-rel">
         <input id="auto"
          onClick={() => setDisplay(!display)} 
-         playholder="enter your search">    
+         playholder="enter your search"
+         value={search}>    
          </input>
         {display && (
             <div className="autoContainer">
                 {options.map((m, i) => {
                     return (
-                    <div className="options" key={i}>
-                        <span>{m}</span>
+                    <div 
+                    onClick={()=> setMedBar(m)}
+                    className="options"
+                     key={i}
+                     >
+                    <span>{m}</span>
                       </div>
                     )}
                 )}
