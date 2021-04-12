@@ -1,4 +1,4 @@
-import{ getMeds } from "../../services/autoSuggest-api"
+import getMeds  from '../../services/autoSuggest-api'
 import { useState, useEffect, useRef } from "react" 
 //^^ useRef is for the click outside to close dropdown
 // setting up state  needed for parts of search bar

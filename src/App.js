@@ -5,7 +5,9 @@ import Header from './components/Header/Header'
 import Medlist from './components/Medlist/Medlist'
 import AutoSuggest from './components/AutoSuggest/AutoSuggest'
 import {login, logout, auth } from './services/firebase'
-
+import Morning from "./components/Lists/Morning/Morning"
+import Afternoon from "./components/Lists/Afternoon/Afternoon"
+import Night from "./components/Lists/Night/Night"
 
 function App() {
   //setting state and state function
@@ -107,6 +109,9 @@ useEffect(() => {
       </section>
       <div>
       <AutoSuggest state={state} />
+      <Morning state={state} />
+      <Afternoon state={state} />
+      <Night state={state} />
       </div>
       <form onSubmit={addMed}>
         <label>medication name: </label>
