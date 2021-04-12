@@ -1,21 +1,7 @@
-const languages = [
-    {
-      name: 'C',
-      year: 1972
-    },
-    {
-      name: 'Elm',
-      year: 2012
-    },
-    {
-        name: 'javascript',
-        year: 1972
-      },
-      {
-        name: 'react',
-        year: 2012
-      },
-  ];
-  
 
-  export default languages;
+export function getMeds(){
+    return fetch('https://raw.githubusercontent.com/heyputnam/corpora/master/data/medicine/drugs.json')
+    .then( res => res.json() )
+}
+
+export default getMeds;

@@ -5,15 +5,11 @@ import Header from './components/Header/Header'
 import Medlist from './components/Medlist/Medlist'
 import AutoSuggest from './components/AutoSuggest/AutoSuggest'
 import {login, logout, auth } from './services/firebase'
-import autoSuggestdb from './services/autoSuggest-api'
+
 
 function App() {
   //setting state and state function
   const[state, setState] = useState({
-    activeOption: 0,
-    filteredOptions: [],
-    showOptions: false,
-    userInput: "",
     user: null, 
     meds: [{
       name: 'adderall',
@@ -34,13 +30,6 @@ function App() {
       night: Boolean(''),
     },
   });
-  //create a function to get app data from backend app
-  const[auto, setAuto] = useState({
-
-
-  })
-
-
 
   async function getAppData(){
     const BASE_URL = "http://localhost:3001/api/meds"
@@ -117,7 +106,7 @@ useEffect(() => {
       <Medlist state={state}/>
       </section>
       <div>
-        <AutoSuggest options={[autoSuggestdb]}/>
+      <AutoSuggest state={state} />
       </div>
       <form onSubmit={addMed}>
         <label>medication name: </label>

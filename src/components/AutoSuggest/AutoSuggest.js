@@ -1,22 +1,45 @@
-import languages from '../../services/autoSuggest-api'
-import {Form, FormControl, Button } from "react-bootstrap";
-import PropTypes from "prop-types";
+import{ getMeds } from "../../services/autoSuggest-api"
+import { useState, useEffect } from "react" 
 
 
-function AutoSuggest(props){
-    const propTypes = {
-        options: PropTypes.instanceOf(Array).isRequired
-    }
-const onChange = e => {
-    console.log('onchange')
-}
+function AutoSuggest(props) {
+  const [meds, setMeds] = useState([]);
+  const[display, setDisplay] = useState(false);
+  const[options, setOptions] = useState([]);
+  const[search, setSearch] = useState(''); 
 
-    return(
-        <>
-        {onChange()}
-        </>
-    )
-    
+  async function getData(){
+    const data = await getMeds();
+    setMeds(data.drugs)
+    console.log(meds)
+  }
+
+  useEffect(()=>{
+    getData();
+    setOptions(meds)
+  }, [''])
+   
+     return(
+    <>
+    <div className="flex-container flex-column pos-rel">
+        <input id="auto"
+         onClick={() => setDisplay(!display)} 
+         playholder="enter your search">    
+         </input>
+        {display && (
+            <div className="autoContainer">
+                {options.map((m, i) => {
+                    return (
+                    <div className="options" key={i}>
+                        <span>{m}</span>
+                      </div>
+                    )}
+                )}
+                </div>
+        )}
+    </div>
+    </>
+     )
 }
 
 export default AutoSuggest;
