@@ -4,6 +4,7 @@ import './styles.css';
 import Header from './components/Header/Header'
 import Medlist from './components/Medlist/Medlist'
 import AutoSuggest from './components/AutoSuggest/AutoSuggest'
+import GoogleCal from './components/GoogleCal/GoogleCal'
 import {login, logout, auth } from './services/firebase'
 import Morning from "./components/Lists/Morning/Morning"
 import Afternoon from "./components/Lists/Afternoon/Afternoon"
@@ -134,6 +135,7 @@ messaging.onMessage((payload)=>{
         <Header user={state.user}/>
       </header>
       <section>
+      <GoogleCal />
       <AutoSuggest state={state} />
       </section>
       <section>
