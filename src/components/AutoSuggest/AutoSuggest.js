@@ -11,13 +11,21 @@ function AutoSuggest(props) {
   const wrapperRef = useRef(null); 
 
 
-  // connects to the json data 
-  //set state of meds
+//   connects to the json data 
+//   set state of meds
   async function getData(){
     const data = await getMeds();
     setMeds(data.drugs)
     console.log(meds)
   }
+
+// async function getData(){
+//     const data = await getMeds();
+//     setMeds(data.drug_names)
+//     console.log(meds)
+//     console.log(data)
+//   }
+
 //set state of options 
   useEffect(()=>{
     getData();
@@ -64,14 +72,15 @@ function AutoSuggest(props) {
                 {/* map through options array to get individual */}
                 {options
                 .filter((meds) => meds.indexOf(search) > - 1 )
-                .map((m, i) => {
+                .map((m, idx) => {
+                    {console.log(idx)}
                     return (
                     <div 
                     // enables tabs to use on dropdown 
                     tabIndex="0"
                     onClick={()=> setMedBar(m)}
                     className="options"
-                     key={i}
+                    key={idx}
                      >
                     <span>{m}</span>
                       </div>

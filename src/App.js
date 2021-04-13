@@ -8,8 +8,13 @@ import {login, logout, auth } from './services/firebase'
 import Morning from "./components/Lists/Morning/Morning"
 import Afternoon from "./components/Lists/Afternoon/Afternoon"
 import Night from "./components/Lists/Night/Night"
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/messaging'
+
 
 function App() {
+
   //setting state and state function
   const[state, setState] = useState({
     user: null, 
@@ -98,6 +103,30 @@ useEffect(() => {
   }
   }))
  }
+ // Initialize Firebase
+
+firebase.app(); // if already initialized, use that one
+
+//give access to messaging services in firebase
+const messaging = firebase.messaging()
+//request permisions to get notifications from the user
+messaging.requestPermission()
+.then(()=>{
+  console.log('permission granted') 
+  return messaging.getToken()
+})
+.then((token)=>{
+  console.log(token)
+})
+.catch((err)=>{
+  console.log('error')
+})
+
+//if user is on page it will not show background notfication 
+//change this to a toast popup 
+messaging.onMessage((payload)=>{
+  console.log('onMessage: ', payload)
+})
 
   return (
     <div>
@@ -105,10 +134,12 @@ useEffect(() => {
         <Header user={state.user}/>
       </header>
       <section>
+      <AutoSuggest state={state} />
+      </section>
+      <section>
       <Medlist state={state}/>
       </section>
       <div>
-      <AutoSuggest state={state} />
       <Morning state={state} />
       <Afternoon state={state} />
       <Night state={state} />
