@@ -1,4 +1,5 @@
 
+
     // const allMeds = []
     // const names = props.meds.map((med)=> {
     //     return(
@@ -13,6 +14,7 @@
     // console.log(dose)
 
 function MedList(props){
+
     const allm = []
     allm.push(props.state)
     // const meddlist = map(item => {
@@ -41,6 +43,7 @@ function MedList(props){
 
 )
 }
+
     
 
 export default MedList;
