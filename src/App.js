@@ -5,6 +5,7 @@ import Header from './components/Header/Header'
 import Medlist from './components/Medlist/Medlist'
 import AutoSuggest from './components/AutoSuggest/AutoSuggest'
 import GoogleCal from './components/GoogleCal/GoogleCal'
+import Fda from './components/Fda/Fda'
 import {login, logout, auth } from './services/firebase'
 import Morning from "./components/Lists/Morning/Morning"
 import Afternoon from "./components/Lists/Afternoon/Afternoon"
@@ -38,6 +39,29 @@ function App() {
       night: Boolean(''),
     },
   });
+
+  const[event, setEvent] = useState({
+    event:[{
+      summary: '',
+      start: {
+        dateTime: '2021-06-28T09:00:00-07:00',
+        timeZone: 'America/Los_Angeles'
+      },
+      recurrence: [
+        'RRULE:FREQ=DAILY'
+      ],
+      reminders: {
+        'useDefault': false,
+        'overrides': [
+          {'method': 'email', 'minutes': 24 * 60},
+          {'method': 'popup', 'minutes': 10}
+        ]
+      }
+
+    }]
+  })
+
+
 
   async function getAppData(){
     const BASE_URL = "http://localhost:3001/api/meds"
@@ -135,13 +159,14 @@ messaging.onMessage((payload)=>{
         <Header user={state.user}/>
       </header>
       <section>
-      <GoogleCal />
-      <AutoSuggest state={state} />
+      <Fda />
+      <GoogleCal event={event}/>
       </section>
       <section>
       <Medlist state={state}/>
       </section>
       <div>
+      <AutoSuggest />
       <Morning state={state} />
       <Afternoon state={state} />
       <Night state={state} />

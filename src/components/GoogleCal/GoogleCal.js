@@ -1,6 +1,7 @@
+import { propTypes } from 'react-bootstrap/esm/Image';
+import AddCal from '../../components/AddCal/AddCal'
 
-
-function GoogleCal(){   
+function GoogleCal(props){   
 
 
     const gapi = window.gapi
@@ -67,7 +68,11 @@ function GoogleCal(){
     })
 }
 return(
+    <>
+     <AddCal event={props.event}/>
     <div onClick={handleClick}>button</div>
+    {console.log(props)}
+    </>
 )
 }
 export default GoogleCal;
