@@ -57,8 +57,8 @@ const TopBar = withRouter(props => {
   const { location } = props;
   return (
     <div className="container">
-
-    <Menu selectedKeys={[location.pathname]}  style={{background:  '#8eddfc' }}mode="horizontal">
+{/* '#8eddfc' */}
+    <Menu selectedKeys={[location.pathname]}  style={{background:  '#74bffc' }}mode="horizontal">
       <Menu.Item key="/" class="menu-item" style={{}}>
         <Link to="/">Home </Link>
       </Menu.Item>
