@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
   Link,
+  Router
 } from "react-router-dom";
 //changing for ant
 import './app.less';
@@ -48,20 +49,20 @@ function App() {
   return(
     
     <>
-      <TopBar user={user}/>
-      <Route exact path="/" render={(props)=>
-        <Home />
+      <Route  user = {user} exact path="/" render={(props)=>
+        <Home></Home>
       }></Route>
       <Route exact path='/meds' render={(props)=>
       <Medicationlookpage event={props.event}/>
       }></Route>
       <Route exact path="/addison" render={(props)=>
       <AddMedpage />
-      }></Route>
-    
-    </>
+      }
+      ></Route>
+     </>
   )
-}
+
+     }
 
   
 
