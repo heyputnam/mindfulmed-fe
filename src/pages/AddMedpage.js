@@ -139,6 +139,7 @@ useEffect(() => {
 
   return(
       <div>
+          <Header user={state.user}/>
     <form onSubmit={addMed}>
     <label>medication name: </label>
     <input name="name" 

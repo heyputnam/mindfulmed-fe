@@ -29,6 +29,7 @@ const firebaseConfig = {
 
   function login(){
       auth.signInWithPopup(provider)
+      console.log('logging in')
   }
 
   function logout(){
