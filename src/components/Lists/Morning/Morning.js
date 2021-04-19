@@ -1,7 +1,11 @@
+import AddForm from '../../Add/Add'
+
+
 function Morning(props){
-    const nightMeds = []
+    const mornignMeds = []
+    console.log(props)
     return(
-        props.state.meds.map((med) =>{
+        props.med.meds.map((med) =>{
             if(med.morning === true){
                 return(
                     <div>{med.name}</div>

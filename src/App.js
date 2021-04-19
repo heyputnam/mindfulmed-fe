@@ -10,6 +10,7 @@ import {
 import './app.less';
 import AddMedpage from './pages/AddMedpage'
 import Medicationlookpage from './pages/Medicationlookpage'
+import Medslistpage from './pages/Medlistpage'
 import Home from './pages/Home'
 import Medlistpage from './pages/Medlistpage'
 import{ login, logout } from './services/firebase'
@@ -21,6 +22,27 @@ import TopBar from './components/Header/Header'
 
 
 function App() {
+  const[state, setState] = useState({
+    med: [{
+      name: 'adderall',
+      dose: '30mg',
+      dateFill: '10-05-2021',
+      morning: 'true',
+      afternoon: true,
+      night: false,
+
+    }],
+    //add new med to the list 
+    newMed: {
+      name: '',
+      dose: '',
+      dateFill: '',
+      morning:Boolean(''),
+      afternoon:Boolean(''),
+      night: Boolean(''),
+    },
+  });
+  
 
   const[event, setEvent] = useState({
     event:[{
@@ -46,17 +68,20 @@ function App() {
     displayName: '',
     photoUrl: ''
   })
+
+
+
+  
   return(
-    
     <>
       <Route  user = {user} exact path="/" render={(props)=>
         <Home></Home>
       }></Route>
       <Route exact path='/meds' render={(props)=>
-      <Medicationlookpage event={props.event}/>
+      <Medslistpage />
       }></Route>
       <Route exact path="/addison" render={(props)=>
-      <AddMedpage />
+      <AddMedpage state={state} setState={setState} event={event}/>
       }
       ></Route>
      </>
