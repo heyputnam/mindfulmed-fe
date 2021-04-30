@@ -69,7 +69,7 @@ import MedList from '../components/Medlist/Medlist';
         </div>
         <div id="section-two">
           <h1>Medication List</h1>
-    <MedList state={props.state} meds={props.state.meds}/>
+    {/* <MedList state={props.state} meds={props.state.meds}/> */}
           {/* <Morning /> */}
         </div>
         <div id="section-three">

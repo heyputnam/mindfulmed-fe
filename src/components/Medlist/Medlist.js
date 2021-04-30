@@ -24,7 +24,7 @@
         // }
         console.log(allm[0])
       
-        const medicine = allm[0].flatMap((key, index) => {
+        const medicine = allm[0].map((key, index) => {
             return Object.keys(key).map(el => ({
                 name: el,
                 value: key[el].value
