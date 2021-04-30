@@ -1,5 +1,4 @@
 function Afternoon(props){
-    const nightMeds = []
     return(
         props.state.meds.map((med) =>{
             if(med.afternoon === true){

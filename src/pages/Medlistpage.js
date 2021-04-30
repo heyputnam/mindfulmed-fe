@@ -1,4 +1,4 @@
-import Medlist from '../components/Medlist/Medlist'
+// import Medlist from '../components/Medlist/Medlist'
 
 
 function Medlistpage(props){

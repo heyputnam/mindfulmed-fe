@@ -1,22 +1,13 @@
 //import statements
-import{ useState, useEffect } from 'react';
+import{ useState } from 'react';
 import {
-  Switch,
   Route,
-  Link,
-  Router
 } from "react-router-dom";
 //changing for ant
 import './app.less';
 import AddMedpage from './pages/AddMedpage'
-import Medicationlookpage from './pages/Medicationlookpage'
 import Medslistpage from './pages/Medlistpage'
 import Home from './pages/Home'
-import Medlistpage from './pages/Medlistpage'
-import{ login, logout } from './services/firebase'
-import {Layout, Menu, Breadcrumb } from 'antd'
-// const {Header, Footer, Content} = Layout;
-import TopBar from './components/Header/Header'
 
 
 

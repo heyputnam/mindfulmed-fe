@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter, BrowserRouter as Router, withRouter} from 'react-router-dom'
+import {BrowserRouter, withRouter} from 'react-router-dom'
 import App from "./App";
 
 const rootElement = document.getElementById("root");

@@ -1,26 +1,12 @@
-import { useEffect, useState } from 'react'
-import Medlist from '../../components/Medlist/Medlist'
-import AutoSuggest from '../../components/AutoSuggest/AutoSuggest'
-import Fda from '../../components/Fda/Fda'
-import Morning from "../../components/Lists/Morning/Morning"
-import Afternoon from "../../components/Lists/Afternoon/Afternoon"
-import Night from "../../components/Lists/Night/Night"
+import { useEffect } from 'react'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/messaging'
-import {auth} from 'firebase/firebase'
-import AddCal from '../AddCal/AddCal'
 import {
   Form,
   Input,
   Button,
-  Radio,
   Select,
-  Cascader,
-  DatePicker,
-  InputNumber,
-  TreeSelect,
-  Switch,
 } from 'antd';
 
 function AddForm(props){

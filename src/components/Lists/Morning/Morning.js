@@ -1,8 +1,7 @@
-import AddForm from '../../Add/Add'
+
 
 
 function Morning(props){
-    const mornignMeds = []
     console.log(props)
     return(
         props.med.meds.map((med) =>{
