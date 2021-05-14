@@ -13,7 +13,7 @@ function AddForm(props){
 
   
   async function getAppData(){
-    const BASE_URL = "http://localhost:3001/api/meds"
+    const BASE_URL = "https://mindfulmedbe.herokuapp.com/api/meds"
     const meds = await fetch(BASE_URL).then((res) => res.json());
     props.setState(prevState => ({
       //sets state to all data entered remembers previous
