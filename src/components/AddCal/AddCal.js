@@ -28,7 +28,7 @@ function addCal(props){
       }
     return(
         <div>
-            <div class="form-container">
+            <div className="form-container">
                 <form>
                     <label>Enter a title for your reminder: 
                         <input input={props.event} ></input>
