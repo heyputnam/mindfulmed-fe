@@ -6,7 +6,7 @@ import AddForm from '../components/Add/Add'
 import AddCal from '../components/AddCal/AddCal';
 import {Breadcrumb} from 'antd'
 import { HashLink as LinkH } from 'react-router-hash-link';
-  
+import MedList from '../components/Add/Add'
 function medPage(props){
   return(
     <div>
@@ -39,8 +39,7 @@ function medPage(props){
         </div>
         <div id="section-two">
           <h1>Medication List</h1>
-    {/* <MedList state={props.state} meds={props.state.meds}/> */}
-          {/* <Morning /> */}
+          <MedList state={props.state} setState={props.setState}/>
         </div>
         <div id="section-three">
           <p>3</p>

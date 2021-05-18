@@ -69,7 +69,7 @@ function App() {
         <Home></Home>
       }></Route>
       <Route exact path='/meds' render={(props)=>
-      <Medslistpage />
+      <Medslistpage state={state} setState={setState}/>
       }></Route>
       <Route exact path="/addison" render={(props)=>
       <AddMedpage state={state} setState={setState} event={event}/>
