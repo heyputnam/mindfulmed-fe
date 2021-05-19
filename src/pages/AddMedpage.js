@@ -1,10 +1,6 @@
 
-//changing for ant
 import Header from '../components/Header/Header'
 import AddForm from '../components/Add/Add'
-
-
-
 function AddMedication(props){
 
 

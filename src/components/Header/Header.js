@@ -4,7 +4,6 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Menu } from 'antd';
 import{ login, logout } from '../../services/firebase'
-const { SubMenu } = Menu
 
 const TopBar = withRouter(props => {
   const { location } = props;
