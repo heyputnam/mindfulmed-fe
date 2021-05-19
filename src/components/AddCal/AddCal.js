@@ -1,4 +1,5 @@
 function addCal(props){
+  let x = 'yellow'
     var event = {
         'summary': 'Awesome Event!',
         'location': '800 Howard St., San Francisco, CA 94103',
@@ -31,7 +32,7 @@ function addCal(props){
             <div className="form-container">
                 <form>
                     <label>Enter a title for your reminder: 
-                        <input input={props.event} ></input>
+                        <input input={props.event} value={x} ></input>
                 </label>
                 <label>
                         <input>

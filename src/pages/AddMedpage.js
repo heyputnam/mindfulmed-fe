@@ -4,6 +4,7 @@ import Header from '../components/Header/Header'
 import AddForm from '../components/Add/Add'
 
 
+
 function AddMedication(props){
 
 
@@ -16,6 +17,7 @@ function AddMedication(props){
           <Header user={props.state}/>
         <AddForm >
         </AddForm>
+
       
    
 

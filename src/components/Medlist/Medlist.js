@@ -1,17 +1,22 @@
 
-
-function Medlist(props){
+import React from 'react'
+import ReactDOM from 'react-dom/index'
+const Medlist = (props)=>{
+let arr =[]
 let obj = props.state.meds
-console.log(obj)
-var arr = [];
-obj.map((o)=>{
-console.log(o)
-for(var name in o)
- arr.push(o[name])
- console.log(arr)
+
+let finalArr = obj.map(function(o){
+    return [o.name, o.dose]
 })
+console.log(finalArr)
 return(
-<div></div>   
+<div>
+ { finalArr.map((arr)=>{
+   return(
+   <li>{arr}</li>
+   )
+ })}
+</div>   
 
 )
 }
