@@ -74,7 +74,7 @@ function AddForm(props){
      // e for event
      async function addMed(e){
        e.preventDefault();
-       const BASE_URL = "http://localhost:3001/api/meds";
+       const BASE_URL = "https://mindfulmedbe.herokuapp.com/api/meds";
       
        const med = await fetch(BASE_URL, {
         method: "POST",
