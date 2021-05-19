@@ -15,11 +15,8 @@ const TopBar = withRouter(props => {
       <Menu.Item key="/" className="menu-item" style={{}}>
         <Link to="/">Home </Link>
       </Menu.Item>
-      <Menu.Item key="/addison">
-        <Link to="/addison">Add</Link>
-      </Menu.Item>
-      <Menu.Item key="/meds">
-        <Link to="/meds">Meds</Link>
+      <Menu.Item key="/medication">
+        <Link to="/medication">Add</Link>
       </Menu.Item>
       <Menu.Item onClick={login} key="login" style={{float: 'right'}}>
 

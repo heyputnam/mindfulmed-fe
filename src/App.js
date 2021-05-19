@@ -6,7 +6,6 @@ import {
 //changing for ant
 import './app.less';
 import AddMedpage from './pages/AddMedpage'
-import Medicationlookpage from './pages/Medicationlookpage'
 import Home from './pages/Home'
 
 
@@ -29,11 +28,7 @@ function App() {
       <Route  user = {user} exact path="/" render={(props)=>
         <Home></Home>
       }></Route>
-      <Route exact path='/meds' render={(props)=>
-      <Medicationlookpage event={props.event} state={props.state}
-      />
-      }></Route>
-      <Route exact path="/addison" render={(props)=>
+      <Route exact path="/medication" render={(props)=>
       <AddMedpage  />
       }
       ></Route>

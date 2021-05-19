@@ -4,7 +4,7 @@ import 'firebase/auth'
 import 'firebase/messaging'
 import {auth} from 'firebase/firebase'
 import Medlist from '../../components/Medlist/Medlist'
-import AddCal from '../../components/AddCal/AddCal'
+
 
 
 function AddForm(props){
@@ -112,7 +112,7 @@ function AddForm(props){
         
     return(
         <>
-        <p>hi</p>
+ 
     <form onSubmit={addMed}>
     <label>medication name: </label>
     <input name="name" 
@@ -159,9 +159,8 @@ function AddForm(props){
 </select>
     <button>ADD MED</button>
   </form>
-    <AddCal />
+  
   <section>
-    wtf
   <Medlist state={state}/>
   </section>
         </>

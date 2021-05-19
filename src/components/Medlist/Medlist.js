@@ -11,6 +11,7 @@ let finalArr = obj.map(function(o){
 console.log(finalArr)
 return(
 <div>
+  <h1>Medication List</h1>
  { finalArr.map((arr)=>{
    return(
    <li>{arr}</li>
